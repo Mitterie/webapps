@@ -22,7 +22,7 @@ public class Authent extends HttpServlet
         String m = req.getParameter("upswd");
 
         if(l != null && m != null){
-            if(l.equals("") && m.equals("")){
+            if(!l.equals("") && !m.equals("")){
                 try{
                     Properties pr = new Properties();
                     pr.load(new FileInputStream("/opt/tomcat/postgres.prop"));
