@@ -56,6 +56,7 @@ public class Authent extends HttpServlet
             HttpSession session = req.getSession(true);
             String token = l;
             session.setAttribute("token", token);
+            session.setMaxInactiveInterval(3600);
             res.sendRedirect("Main");
         }
     }
