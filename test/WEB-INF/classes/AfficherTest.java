@@ -25,7 +25,7 @@ public class AfficherTest extends HttpServlet
         String content = "";
         try{
             Properties pr = new Properties();
-            pr.load(new FileInputStream("postgres.prop"));
+            pr.load(new FileInputStream("/opt/tomcat/postgres.prop"));
             // enregistrement du driver
             Class.forName(pr.getProperty("driver"));
             // connexion à la base
