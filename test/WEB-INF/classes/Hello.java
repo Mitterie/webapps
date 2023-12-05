@@ -3,7 +3,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.WebServlet;
 
-@WebServlet(name = "servlet-Hello", urlPatterns = {"/servlet-Hello"})
+@WebServlet(name = "Hello", urlPatterns = {"/Hello"})
 
 public class Hello extends HttpServlet
 {
