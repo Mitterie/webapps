@@ -16,7 +16,7 @@ public class Main extends HttpServlet
         if(session.getAttribute("token") != null){
             res.setContentType("text/html");
             PrintWriter out = res.getWriter();
-            out.println("<link rel=\"stylesheet\" href=\"./css/index.css`\">");
+            out.println("<link rel=\"stylesheet\" href=\'./css/index.css\'>");
             out.println("<body><h1>Connection établie !</h1></body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
