@@ -45,8 +45,9 @@ public class Main extends HttpServlet
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM videosmitterie;");
                 while(rs.next()){
-                    content = content + "<tr><td><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe></td><td>"+rs.getString(2)+"</td></tr>";
+                    content = content + "<tr><td><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe></td><td><p>"+rs.getString(2)+"</p></td></tr>";
                 }
+                con.close();
             }catch(Exception e2){
                 System.out.println(e2.getMessage());
                 con.close();

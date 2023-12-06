@@ -5,3 +5,12 @@ h1 {
 td {
     padding: 2em;
 }
+
+body {
+    background-color: grey;
+}
+
+@font-face {
+    font-family: 'HedvigLettersSerif';
+    src: url('../font/HedvigLettersSerif.ttf');
+}
