@@ -1,3 +1,66 @@
+@font-face {
+    font-family: 'HedvigLettersSerif';
+    src: url('../font/HedvigLettersSerif.ttf');
+}
+
 body {
-    background-color: grey;
+    font-family: 'HedvigLettersSerif';
+    background-image: url('../img/mitterie.jpg');
+    background-size: cover;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin: 5vh;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+}
+
+h2 {
+    position: absolute;
+    margin: 5vh;
+    font-size: 4vh;
+    color: #FFFFFF;
+    text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00;
+}
+
+#text {
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    gap: 15px;
+    background-color: beige;
+    width: 45vh;
+    padding: 15vh 2vh;
+    border-radius: 25px;
+
+    -webkit-box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(151,27,80,0); 
+    box-shadow: #FFF 0 -1px 4px, #ff0 0 -2px 10px, #ff8000 0 -10px 20px, red 0 -18px 40px, 5px 5px 15px 5px rgba(151,27,80,0);
+}
+
+form input, form button {
+    text-align: center;
+    border-radius: 2vh;
+    width: fit-content;
+    border: 2px solid burlywood;
+    background-color: bisque;
+    color: darkgoldenrod;
+
+    width: 20vh;
+    height: 5vh;
+    font-size: 1.5vh;
+}
+
+form input::placeholder, form button::placeholder {
+    color: darkslategrey;
+}
+
+form button:active {
+    background-color: burlywood;
 }
