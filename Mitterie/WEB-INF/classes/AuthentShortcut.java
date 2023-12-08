@@ -13,7 +13,7 @@ public class AuthentShortcut extends HttpServlet
     {
         HttpSession session = req.getSession();
         if(session.getAttribute("token") != null){
-            res.sendRedirect("Main");
+            res.sendRedirect("Entrance");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         }
