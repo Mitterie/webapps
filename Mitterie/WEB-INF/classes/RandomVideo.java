@@ -30,7 +30,7 @@ public class RandomVideo extends HttpServlet
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/entrance.css\'>");
             out.println("<title>Video Random</title>");
-            out.println("<a href=\"Disconnect\">Se déconnecter</a><br><h1>"+txt[rd.nextInt(txt.length)]+"</h1>");
+            out.println("<a href=\"Disconnect\">Se déconnecter</a><br><a href=\"Entrance\">Retour</a><br><h1>"+txt[rd.nextInt(txt.length)]+"</h1>");
             out.println(getRandomVideo());
             out.println("<h2>Recharge la page pour avoir une nouvelle vidéo au hasard !</h2>");
         }else{
