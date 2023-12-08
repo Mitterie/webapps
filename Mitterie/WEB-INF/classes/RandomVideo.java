@@ -28,7 +28,7 @@ public class RandomVideo extends HttpServlet
             String[] txt = new String[]{"Regarde ca !","Check ca !","Ouuhh... pas mal ca !","Regarde cette masterclass !","J'ai trop rigoler sur celle la !"};
             res.setContentType("text/html");
             PrintWriter out = res.getWriter();
-            out.println("<link rel=\"stylesheet\" href=\'./css/entrance.css\'>");
+            out.println("<link rel=\"stylesheet\" href=\'./css/random.css\'>");
             out.println("<title>Video Random</title>");
             out.println("<a href=\"Disconnect\">Se déconnecter</a><br><a href=\"Entrance\">Retour</a><br><h1>"+txt[rd.nextInt(txt.length)]+"</h1>");
             out.println(getRandomVideo());
