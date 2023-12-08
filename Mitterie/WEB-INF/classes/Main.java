@@ -23,7 +23,7 @@ public class Main extends HttpServlet
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/main.css\'>");
             out.println("<title>Videos</title>");
-            out.println("<body><center><h1>Vidéos des mites :</h1></center><table>");
+            out.println("<body><center><h1>Vidéos des mites :</h1></center><a href=\"Disconnect\">Se déconnecter</a><table>");
             out.println(getAllVideosHtml()+"</table></body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
