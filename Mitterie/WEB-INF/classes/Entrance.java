@@ -23,15 +23,17 @@ public class Entrance extends HttpServlet
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/entrance.css\'>");
             out.println("<title>Acceuil</title>");
-            out.println("<a href=\"Disconnect\">Se déconnecter</a><br><h1>On fait quoi ?</h1>");
-            out.println("<div class=\"list\">\r\n" + //
+            out.println("<div class=\"list\"><h1>On fait quoi ?</h1>\r\n" + //
                     "    <ul>\r\n" + //
                     "        <li><a href=\"Main\">Toutes les vidéos</a></li>\r\n" + //
                     "        <li><a href=\"RandomVideo\">Générateur de vidéo aléatoire</a></li>\r\n" + //
+                    "        <li><a href=\"Disconnect\">Se déconnecter</a></li>\r\n" + //
                     "    </ul>\r\n" + //
                     "</div>");
-            out.println("<h2>Les 3 dernières vidéos mises en ligne :</h2><br>");
+            out.println("<div class=\"videos\">");
+            out.println("<h2>Les 3 dernières vidéos mises en ligne :</h2>");
             out.println(get3LastVideos());
+            out.println("</div>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         }
@@ -59,10 +61,8 @@ public class Entrance extends HttpServlet
                     noms.add(rs.getString(2));
                 }
                 //recup des 3 dernieres videos
-                int nb = 1;
                 for(int i = urls.size()-1;i >= 0 ; i--){
-                    res = res + "<div class=\"video"+nb+"\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+urls.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div><br>";
-                    nb++;
+                    res = res + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+urls.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
                 }
                 con.close();
             }catch(Exception e2){
