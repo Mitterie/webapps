@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Se connecter</title>
+
+    <link rel="shortcut icon" href="img/mite.png" type="image/png">
     <link rel="stylesheet" href="css/index.css">
-    <title>Mitterie</title>
+    <link rel="stylesheet" href="fontawesome/css/all.css">
 </head>
 <body>
-    <h1>Bienvenue chez les mites !</h1>
-    <div class="formulaire">
-        <div id="text">
-            <h2>IDENTIFIEZ-VOUS</h2>
-            <form action="Authent" method="post">
-                <input type="text" placeholder="Entrez votre login" name="uname" required>
-
+    <div>
+        <h1>S'identifier</h1>
+        <form action="Authent" method="post">
+            <div>
+                <input type="text" placeholder="Entrez votre nom d'utilisateur" name="uname" required>
+                <i class="fa-regular fa-circle-user"></i>
+            </div>
+            <div>
                 <input type="password" placeholder="Entrez votre mot de passe" name="upswd" required>
-
-                <button type="submit">Connection</button>
-            </form>
-            <form action="AuthentShortcut" method="post">
-                <button type="submit">Je me suis deja connecté !</button>
-            </form>
-        </div>
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <button type="submit">Se connecter</button>
+        </form>
+        <form action="AuthentShortcut" method="post">
+            <button type="submit">Je me suis deja connecté !</button>
+        </form>
     </div>
 </body>
 </html>
