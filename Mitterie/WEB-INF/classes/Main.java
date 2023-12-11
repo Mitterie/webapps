@@ -19,18 +19,16 @@ public class Main extends HttpServlet
         HttpSession session = req.getSession();
         if(session.getAttribute("token") != null){
 
-            String s = "";
-            s = (String)session.getAttribute("rech");
-            String f = "";
-            if(s != null){
-                f = s;
+            String s = (String)session.getAttribute("rech");
+            if(s == null){
+                s = "";
             }
             res.setContentType("text/html");
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/main.css\'>");
             out.println("<title>Videos</title>");
-            out.println("<body><center><h1>Vidéos des mites :</h1></center><a href=\"Disconnect\">Se déconnecter</a><br><a href=\"Entrance\">Retour</a><form action=Main method=post>Rechercher : <input name=rech type=text> <br/><input type=submit></form><table>");
-            out.println(getAllVideosHtml(f)+"</table></body>");
+            out.println("<body><center><h1>Vidéos des mites :</h1></center><a href=\"Disconnect\">Se déconnecter</a><br><a href=\"Entrance\">Retour</a><form action=Main method=post>Rechercher : <input name=rech type=text><input type=submit></form><table>");
+            out.println(getAllVideosHtml(s)+"</table></body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         }
