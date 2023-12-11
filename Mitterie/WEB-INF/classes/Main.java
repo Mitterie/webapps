@@ -19,7 +19,7 @@ public class Main extends HttpServlet
         HttpSession session = req.getSession();
         if(session.getAttribute("token") != null){
 
-            String s = (String)session.getAttribute("rech");
+            String s = req.getParameter("rech");
             if(s == null){
                 s = "";
             }
