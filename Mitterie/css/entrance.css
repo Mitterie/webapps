@@ -5,6 +5,9 @@
 body {
     background-color: whitesmoke;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url('backgroud.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div.list {
@@ -16,6 +19,7 @@ div.list {
 div.list h1 {
     font-size: 4vh;
     padding: 1vh;
+    color: #F0ECE5;
 }
 
 div.list ul {
@@ -54,16 +58,17 @@ div.videos {
 
 div.videos h2 {
     font-size: 3vh;
+    color: #F0ECE5;
 }
 
 div.videos div.video {
     display: grid;
     justify-items: center;
-    margin: 4vh;
+    margin: 4vh 0vh;
     border: 1vh solid #31304D;
     background-color: #31304D;
     border-radius: 2vh;
-    width: 50vh;
+    width: 40vh;
 }
 
 div.videos div.video:hover {
@@ -72,8 +77,8 @@ div.videos div.video:hover {
 }
 
 div.videos div.video iframe {
-    width: 50vh;
-    height: 28vh;
+    width: 40vh;
+    height: 24vh;
     border: none;
     border-radius: 2vh;
 }
@@ -84,4 +89,24 @@ div.videos div.video p {
     padding: 1vh;
     text-align: center;
     font-weight: bold;
+}
+
+@media screen and (orientation: landscape) {
+    div.videos {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    div.videos h2 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    div.videos div.video {
+        width: 50vh;
+    }
+
+    div.videos div.video iframe {
+        width: 50vh;
+        height: 28vh;
+    }
 }

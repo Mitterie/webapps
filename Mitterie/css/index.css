@@ -1,9 +1,10 @@
 body {
     margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-image: url('../img/backgroud.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    height: 100vh;
 }
 
 body > div {
