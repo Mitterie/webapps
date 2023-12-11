@@ -30,9 +30,10 @@ public class RandomVideo extends HttpServlet
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/random.css\'>");
             out.println("<title>Video Random</title>");
-            out.println("<a href=\"Disconnect\">Se déconnecter</a><br><a href=\"Entrance\">Retour</a><br><h1>"+txt[rd.nextInt(txt.length)]+"</h1>");
+            out.println("<div class=\"header\"><a href=\"Entrance\">Retour</a><a href=\"Disconnect\">Se déconnecter</a></div>");
+            out.println("<div class=\"main\"><h1>"+txt[rd.nextInt(txt.length)]+"</h1>");
             out.println(getRandomVideo());
-            out.println("<h2>Recharge la page pour avoir une nouvelle vidéo au hasard !</h2>");
+            out.println("<h2>Recharge la page pour avoir une nouvelle vidéo au hasard !</h2></div>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         }
@@ -54,7 +55,7 @@ public class RandomVideo extends HttpServlet
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY RANDOM() LIMIT 1;");
                 while (rs.next()) {
-                    res = res + "<iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+rs.getString(2)+"</p>";
+                    res = res + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+rs.getString(2)+"</p></div>";
                 }
                 con.close();
             }catch(Exception e2){
