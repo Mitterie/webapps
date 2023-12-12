@@ -100,3 +100,25 @@ div.videos div.video p {
         height: 28vh;
     }
 }
+
+form button {
+    padding: 1.5vh;
+    border-radius: 2vh;
+    border: 0.1vh solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.2vh;
+    width: 30vh;
+    font-size: 1.5vh;
+    margin: 0.5vh;
+    text-align: center;
+}
+
+form button:hover {
+    background-color: #ffffff33;
+}
+
+form button:active {
+    background-color: #ffffff80;
+}
