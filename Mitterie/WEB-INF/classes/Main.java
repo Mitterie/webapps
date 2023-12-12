@@ -27,8 +27,9 @@ public class Main extends HttpServlet
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/main.css\'>");
             out.println("<title>Videos</title>");
-            out.println("<body><center><h1>Vidéos des mites :</h1></center><a href=\"Disconnect\">Se déconnecter</a><br><a href=\"Entrance\">Retour</a><form action=Main method=post>Rechercher : <input name=rech type=text><input type=submit></form><table>");
-            out.println(getAllVideosHtml(s)+"</table></body>");
+            out.println("<div class=\"list\"><h1>On fait quoi ?</h1><ul><li><a href=\"Entrance\">Retour</a></li><li><a href=\"Disconnect\">Se déconnecter</a></li><li><form action=Main method=post>Rechercher : <input name=rech type=text placeholder=\"Rechercher...\"><input type=submit value=\"Valider\"></form></li>");
+            out.println("<body><div class=\"videos\"><h2>Vidéos des mites</h2>");
+            out.println(getAllVideosHtml(s)+"</div></body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         }
@@ -55,7 +56,7 @@ public class Main extends HttpServlet
                     rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%');");
                 }
                 while(rs.next()){
-                    content = content + "<tr><td><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe></td><td><p>"+rs.getString(2)+"</p></td></tr>";
+                    content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+rs.getString(2)+"</p></div>";
                 }
                 con.close();
             }catch(Exception e2){
