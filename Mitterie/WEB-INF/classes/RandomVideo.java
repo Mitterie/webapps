@@ -30,10 +30,15 @@ public class RandomVideo extends HttpServlet
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/random.css\'>");
             out.println("<title>Video Random</title>");
-            out.println("<div class=\"header\"><a href=\"Entrance\">Retour</a><a href=\"Disconnect\">Se déconnecter</a></div>");
-            out.println("<div class=\"main\"><h1>"+txt[rd.nextInt(txt.length)]+"</h1>");
+            out.println("<div class=\"list\"><h1>On fait quoi ?</h1>\r\n" + //
+                    "    <ul>\r\n" + //
+                    "        <li><a href=\"Entrance\">Retour</a></li>\r\n" + //
+                    "        <li><a href=\"Disconnect\">Se déconnecter</a></li>\r\n" + //
+                    "    </ul>\r\n" + //
+                    "</div>");
+            out.println("<div class=\"videos\"><h2>"+txt[rd.nextInt(txt.length)]+"</h2>");
             out.println(getRandomVideo());
-            out.println("<h2>Recharge la page pour avoir une nouvelle vidéo au hasard !</h2></div>");
+            out.println("<form action=RandomVideo method=post><button type=\"submit\">Une autre vidéo !</button></form></div>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         }
