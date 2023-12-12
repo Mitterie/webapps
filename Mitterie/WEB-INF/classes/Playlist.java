@@ -17,7 +17,7 @@ public class Playlist extends HttpServlet
             out.println("<link rel=\"stylesheet\" href=\'./css/playlist.css\'>");
             out.println("<title>Playlist Officiel</title>");
             out.println("<body><h1>Régale toi chef !</h1><div class=\"carBT\"><a href=\"Disconnect\">Se déconnecter</a><br><a href=\"Entrance\">Retour</a>");
-            out.println("<iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/playlist/3EcbQmX1J0E4Ii8uty41VS?utm_source=generator&theme=0\" width=\"500\" height=\"352\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>");
+            out.println("<iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/playlist/3EcbQmX1J0E4Ii8uty41VS?utm_source=generator&theme=0\" width=\"500\" height=\"500\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>");
             out.println("</body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
