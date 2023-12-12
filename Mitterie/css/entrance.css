@@ -24,9 +24,8 @@ div.list h1 {
 
 div.list ul {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    padding: 0;
     list-style: none;
     padding: 3vh 1.5vh;
     background-color: #31304D;
