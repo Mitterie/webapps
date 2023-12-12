@@ -26,7 +26,7 @@ public class Entrance extends HttpServlet
             out.println("<div class=\"list\"><h1>On fait quoi ?</h1>\r\n" + //
                     "    <ul>\r\n" + //
                     "        <li><a href=\"Main\">Toutes les vidéos</a></li>\r\n" + //
-                    "        <li><a href=\"RandomVideo\">Générateur de vidéo aléatoire</a></li>\r\n" + //
+                    "        <li><a href=\"RandomVideo\">Générateur de vidéo aléatoire</a></li><li><a href=\"Playlist\">Voir la \"Playlist Officiel\"</a></li>\r\n" + //
                     "        <li><a href=\"Disconnect\">Se déconnecter</a></li>\r\n" + //
                     "    </ul>\r\n" + //
                     "</div>");
