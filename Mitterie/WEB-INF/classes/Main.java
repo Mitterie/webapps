@@ -27,7 +27,7 @@ public class Main extends HttpServlet
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/main.css\'>");
             out.println("<title>Videos</title>");
-            out.println("<div class=\"list\"><h1>On fait quoi ?</h1><ul><li><a href=\"Entrance\">Retour</a></li><li><a href=\"Disconnect\">Se déconnecter</a></li><li><form action=Main method=post>Rechercher : <input name=rech type=text placeholder=\"Rechercher...\"><input type=submit value=\"Valider\"></form></li>");
+            out.println("<div class=\"list\"><h1>On fait quoi ?</h1><ul><li><a href=\"Entrance\">Retour</a></li><li><form action=Main method=post>Rechercher : <input name=rech type=text placeholder=\\\"Rechercher...\\\"><input type=submit value=\\\"Valider\\\"></form></li><li><a href=\"Disconnect\">Se déconnecter</a></li>");
             out.println("<body><div class=\"videos\"><h2>Vidéos des mites</h2>");
             out.println(getAllVideosHtml(s)+"</div></body>");
         }else{
