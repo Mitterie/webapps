@@ -6,7 +6,7 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     background-image: url('../img/backgroud.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100%;
 }
 
 div.list {
@@ -101,6 +101,39 @@ div.videos h2 {
     text-align: center;
 }
 
+div.videos form {
+    grid-row-start: 2;
+    color: #F0ECE5;
+    font-size: 2vh;
+    padding: 1vh;
+}
+
+div.videos form label {
+    padding: 1vh;
+}
+
+div.videos form button {
+    padding: 0.5vh;
+    border-radius: 2vh;
+    border: 0.1vh solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.2vh;
+    width: 15vh;
+    font-size: 1.5vh;
+    margin: 0.5vh;
+    text-align: center;
+}
+
+div.videos form button:hover {
+    background-color: #ffffff33;
+}
+
+div.videos form button:active {
+    background-color: #ffffff80;
+}
+
 div.videos div.video {
     display: grid;
     justify-items: center;
@@ -137,7 +170,7 @@ div.videos div.video p {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    div.videos h2 {
+    div.videos h2, div.videos form {
         grid-column-start: 1;
         grid-column-end: 4;
     }
