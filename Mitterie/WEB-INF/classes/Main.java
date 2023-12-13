@@ -79,7 +79,6 @@ public class Main extends HttpServlet
                 }
                 while(rs.next()){
                     content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+rs.getString(2)+"</p></div>";
-
                 }
                 con.close();
             }catch(Exception e2){
