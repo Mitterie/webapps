@@ -7,7 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 
 public class SaveCroissantMain extends HttpServlet
 {
-    public void doPosts( HttpServletRequest req, HttpServletResponse res )
+    public void doPost( HttpServletRequest req, HttpServletResponse res )
     throws ServletException, IOException
     {
         HttpSession session = req.getSession();
