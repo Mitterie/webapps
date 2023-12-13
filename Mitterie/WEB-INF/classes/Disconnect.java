@@ -12,7 +12,7 @@ public class Disconnect extends HttpServlet
     throws ServletException, IOException
     {
         HttpSession session = req.getSession();
-        session.setAttribute("token", null);
+        session.invalidate();
         res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
     }
 
