@@ -3,7 +3,6 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.Properties;
 
 import jakarta.servlet.*;
@@ -65,26 +64,22 @@ public class Main extends HttpServlet
             try{
                 Statement stmt = con.createStatement();
                 ResultSet rs = null;
-                if(rech.equals("")){
-                    rs = stmt.executeQuery("SELECT * FROM videosmitterie;");
-                }else{
-                    rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%');");
-                }
-                ArrayList<String> urls = new ArrayList<String>();
-                ArrayList<String> noms = new ArrayList<String>();
-                while(rs.next()){
-                    urls.add(rs.getString(1));
-                    noms.add(rs.getString(2));
-                }
                 if(cr){
-                    //dans le sens inverse
-                    for(int i = urls.size()-1 ; i >= 0 ;i --){
-                        content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+urls.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
+                    if(rech.equals("")){
+                        rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie DESC, heuresortie DESC;");
+                    }else{
+                        rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
                     }
                 }else{
-                    for(int i = 0 ; i < urls.size();i ++){
-                        content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+urls.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
+                    if(rech.equals("")){
+                        rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie , heuresortie;");
+                    }else{
+                        rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
                     }
+                }
+                while(rs.next()){
+                    content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+rs.getString(2)+"</p></div>";
+
                 }
                 con.close();
             }catch(Exception e2){
