@@ -3,6 +3,7 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.Properties;
 
 import jakarta.servlet.*;
@@ -23,19 +24,24 @@ public class Main extends HttpServlet
             if(s == null){
                 s = "";
             }
+
+            boolean croissant = false;
+            if(req.getParameter("jeune") != null){
+                croissant = true;
+            }
             res.setContentType("text/html");
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/main.css\'>");
             out.println("<title>Videos</title>");
             out.println("<div class=\"list\"><h1>On fait quoi ?</h1><ul><li><a href=\"Entrance\">Retour</a></li><li><form action=Main method=post><input name=rech type=text placeholder=\"Rechercher...\"><input type=submit value=\"Valider\"></form></li><li><a href=\"Disconnect\">Se déconnecter</a></li></div>");
-            out.println("<body><div class=\"videos\"><h2>Vidéos des mites</h2>");
-            out.println(getAllVideosHtml(s)+"</div></body>");
+            out.println("<body><div class=\"videos\"><h2>Vidéos des mites</h2><form action=\"Main\" method=\"post\"><input type=\"checkbox\" id=\"jeune\" name=\"jeune\" value=\"vrai\" checked /><label for=\"jeune\">Ordre croissant</label></form>");
+            out.println(getAllVideosHtml(croissant,s)+"</div></body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         }
     }
 
-    public static String getAllVideosHtml(String rech){
+    public static String getAllVideosHtml(boolean cr, String rech){
         String content = "";
         try{
             Properties pr = new Properties();
@@ -55,8 +61,21 @@ public class Main extends HttpServlet
                 }else{
                     rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%');");
                 }
+                ArrayList<String> urls = new ArrayList<String>();
+                ArrayList<String> noms = new ArrayList<String>();
                 while(rs.next()){
-                    content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+rs.getString(1)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+rs.getString(2)+"</p></div>";
+                    urls.add(rs.getString(1));
+                    noms.add(rs.getString(2));
+                }
+                if(cr){
+                    //dans le sens inverse
+                    for(int i = urls.size()-1 ; i >= 0 ;i --){
+                        content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+urls.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
+                    }
+                }else{
+                    for(int i = 0 ; i < urls.size();i ++){
+                        content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+urls.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
+                    }
                 }
                 con.close();
             }catch(Exception e2){
