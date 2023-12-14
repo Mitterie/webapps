@@ -24,7 +24,7 @@ public class Entrance extends HttpServlet
         if(session.getAttribute("token") != null){
             String adminP = "";
             if(session.getAttribute("role") != null){
-                if(session.getAttribute("role").equals("admin")){
+                if(((String)session.getAttribute("role")).equals("admin")){
                     adminP = "<li><a href=\"AdminPage\">Page Admin</a></li>";
                 }
             }
@@ -36,7 +36,7 @@ public class Entrance extends HttpServlet
                     "    <ul>\r\n" + //
                     "        <li><a href=\"Main\">Toutes les vidéos</a></li>\r\n" + //
                     "        <li><a href=\"RandomVideo\">Générateur de vidéo aléatoire</a></li><li><a href=\"Playlist\">Voir la \"Playlist Officiel\"</a></li>\r\n" + //
-                    "        <li><a href=\"Disconnect\">Se déconnecter</a></li>"+adminP+"\r\n" + //
+                    "        "+adminP+"<li><a href=\"Disconnect\">Se déconnecter</a></li>\r\n" + //
                     "    </ul>\r\n" + //
                     "</div>");
             out.println("<div class=\"videos\">");

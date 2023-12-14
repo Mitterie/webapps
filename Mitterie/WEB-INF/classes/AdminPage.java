@@ -13,20 +13,20 @@ public class AdminPage extends HttpServlet
         HttpSession session = req.getSession();
         if(session.getAttribute("token") != null){
             if(session.getAttribute("role") != null){
-                if(session.getAttribute("role").equals("admin")){
+                if(((String)session.getAttribute("role")).equals("admin")){
                     res.setContentType("text/html");
                     PrintWriter out = res.getWriter();
                     out.println("<link rel=\"stylesheet\" href=\'./css/entrance.css\'>");
                     out.println("<title>Page Admin</title>");
                     out.println("<body><h1>Tu es admin, c'est bein !</h1><br><a href=\"Entrance\">Retour</a></body>");
                 }else{
-                    res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+                    res.sendRedirect("Entrance");
                 }
             }else{
-                res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+                res.sendRedirect("Entrance");
             }
         }else{
-            res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+            res.sendRedirect("Entrance");
         }
     }
 
