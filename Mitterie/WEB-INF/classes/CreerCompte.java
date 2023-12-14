@@ -19,6 +19,7 @@ public class CreerCompte extends HttpServlet
         String m = req.getParameter("upswd");
         String e = req.getParameter("uemail");
 
+        boolean bon = false;
         if(l != null && m != null && e != null){
             if((!l.equals(""))&&(!m.equals(""))&&(!e.equals(""))){
                 try {
@@ -39,7 +40,7 @@ public class CreerCompte extends HttpServlet
                         pstmt.setString(3, e);
                         pstmt.executeUpdate();
                         con.close();
-                        res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+                        bon = true;
                     } catch (Exception e2) {
                         System.out.println(e2.getMessage());
                         con.close();
@@ -47,7 +48,11 @@ public class CreerCompte extends HttpServlet
                 } catch (Exception e1) {
                     System.out.println(e1.getMessage());
                 }
-                res.sendRedirect("http://51.91.101.98:8080/Mitterie/createAccount.html");
+                if(bon){
+                    res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+                }else{
+                    res.sendRedirect("http://51.91.101.98:8080/Mitterie/createAccount.html");
+                }
             }
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/createAccount.html");
