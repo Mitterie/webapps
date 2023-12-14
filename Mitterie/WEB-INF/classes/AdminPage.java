@@ -16,7 +16,7 @@ public class AdminPage extends HttpServlet
                 if(((String)session.getAttribute("role")).equals("admin")){
                     res.setContentType("text/html");
                     PrintWriter out = res.getWriter();
-                    out.println("<link rel=\"stylesheet\" href=\'./css/entrance.css\'>");
+                    out.println("<link rel=\"stylesheet\" href=\'./css/admin.css\'>");
                     out.println("<title>Page Admin</title>");
                     out.println("<body><h1>Tu es admin, c'est bein !</h1><br><a href=\"Entrance\">Retour</a></body>");
                 }else{
