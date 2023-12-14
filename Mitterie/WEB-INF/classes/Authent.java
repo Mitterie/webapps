@@ -35,13 +35,14 @@ public class Authent extends HttpServlet
                     Connection con = DriverManager.getConnection(url, nom, mdp);
                     try{
                         // exécution de la requete
-                        PreparedStatement pstmt = con.prepareStatement("SELECT * FROM loginmitterie WHERE login = ? AND mdp = ?;");
+                        PreparedStatement pstmt = con.prepareStatement("SELECT * FROM loginmitterie WHERE login = ? AND mdp = MD5(?);");
                         pstmt.setString(1, l);
                         pstmt.setString(2, m);
                         ResultSet rs = pstmt.executeQuery();
                         if(rs.next()){
                             valid = true;
                         }
+                        con.close();
                     }catch(Exception e2){
                         System.out.println(e2.getMessage());
                         con.close();
