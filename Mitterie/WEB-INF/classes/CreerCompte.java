@@ -12,7 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 
 public class CreerCompte extends HttpServlet
 {
-    public void service( HttpServletRequest req, HttpServletResponse res )
+    public void doPost( HttpServletRequest req, HttpServletResponse res )
     throws ServletException, IOException
     {
         String l = req.getParameter("ulogin");
