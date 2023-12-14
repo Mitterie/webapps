@@ -20,7 +20,7 @@ public class CreerCompte extends HttpServlet
         String e = req.getParameter("uemail");
 
         if(l != null && m != null && e != null){
-            if(!l.equals("")&&!m.equals("")&&!e.equals("")){
+            if((!l.equals(""))&&(!m.equals(""))&&(!e.equals(""))){
                 try {
                     Properties pr = new Properties();
                     pr.load(new FileInputStream("/opt/tomcat/postgres.prop"));
@@ -34,6 +34,9 @@ public class CreerCompte extends HttpServlet
                     try {
                         // exécution de la requete
                         PreparedStatement pstmt = con.prepareStatement("INSERT INTO loginmitterie(login,mdp,role,email) VALUES(?,MD5(?),'utils',?);");
+                        pstmt.setString(1, l);
+                        pstmt.setString(2, m);
+                        pstmt.setString(3, e);
                         pstmt.executeUpdate();
                         con.close();
                         res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
