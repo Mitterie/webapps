@@ -18,7 +18,16 @@ public class Entrance extends HttpServlet
     throws ServletException, IOException
     {
         HttpSession session = req.getSession();
+
+        
+        
         if(session.getAttribute("token") != null){
+            String adminP = "";
+            if(session.getAttribute("role") != null){
+                if(session.getAttribute("role").equals("admin")){
+                    adminP = "<li><a href=\"AdminPage\">Page Admin</a></li>";
+                }
+            }
             res.setContentType("text/html");
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/entrance.css\'>");
@@ -27,7 +36,7 @@ public class Entrance extends HttpServlet
                     "    <ul>\r\n" + //
                     "        <li><a href=\"Main\">Toutes les vidéos</a></li>\r\n" + //
                     "        <li><a href=\"RandomVideo\">Générateur de vidéo aléatoire</a></li><li><a href=\"Playlist\">Voir la \"Playlist Officiel\"</a></li>\r\n" + //
-                    "        <li><a href=\"Disconnect\">Se déconnecter</a></li>\r\n" + //
+                    "        <li><a href=\"Disconnect\">Se déconnecter</a></li>"+adminP+"\r\n" + //
                     "    </ul>\r\n" + //
                     "</div>");
             out.println("<div class=\"videos\">");
