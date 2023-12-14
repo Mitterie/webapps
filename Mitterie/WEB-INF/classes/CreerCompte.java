@@ -36,6 +36,7 @@ public class CreerCompte extends HttpServlet
                         PreparedStatement pstmt = con.prepareStatement("INSERT INTO loginmitterie(login,mdp,role,email) VALUES(?,MD5(?),'utils',?);");
                         pstmt.executeUpdate();
                         con.close();
+                        res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
                     } catch (Exception e2) {
                         System.out.println(e2.getMessage());
                         con.close();
@@ -43,9 +44,12 @@ public class CreerCompte extends HttpServlet
                 } catch (Exception e1) {
                     System.out.println(e1.getMessage());
                 }
+                res.sendRedirect("http://51.91.101.98:8080/Mitterie/createAccount.html");
             }
+        }else{
+            res.sendRedirect("http://51.91.101.98:8080/Mitterie/createAccount.html");
         }
-        res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+        
     }
 
 }
