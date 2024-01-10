@@ -28,6 +28,15 @@ public class Main extends HttpServlet
             String s = req.getParameter("rech");
             if(s == null){
                 s = "";
+                if(session.getAttribute("rech")!= null){
+                    session.removeAttribute("rech");
+                }
+            }else if(s.equals("")){
+                if(session.getAttribute("rech")!= null){
+                    session.removeAttribute("rech");
+                }
+            }else{
+                session.setAttribute("rech", s);
             }
 
             if(req.getParameter("numeroPage") == null){
@@ -59,7 +68,7 @@ public class Main extends HttpServlet
             out.println("<title>Videos</title>");
             out.println("<div class=\"list\"><h1>On fait quoi ?</h1><ul><li><a href=\"Entrance\">Retour</a></li><li><form action=Main method=post><input name=rech type=text placeholder=\"Rechercher...\"><input type=submit value=\"Valider\"></form></li><li><a href=\"Disconnect\">Se déconnecter</a></li></div>");
             out.println("<body><div class=\"videos\"><h2>Vidéos des mites</h2><form action=\"SaveCroissantMain\" method=\"post\"><input type=\"checkbox\" name=\"jeune\" value=\"vrai\" "+affichageCroissant+"/><label for=\"jeune\">Ordre croissant</label><button type=\"submit\">Recharger</button></form>");
-            out.println(getAllVideosHtml(croissant,s)+"</div>");
+            out.println(getAllVideosHtml(croissant,(String)session.getAttribute("rech"))+"</div>");
             out.println(getListButtons()+"</body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
@@ -92,12 +101,28 @@ public class Main extends HttpServlet
                     if(rech.equals("")){
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie DESC, heuresortie DESC;");
                     }else{
+                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
+                        rs.next();
+                        nbVideo = rs.getInt(1);
+                        nbPage = nbVideo/9;
+                        if(nbVideo%9 != 0){
+                            nbPage++;
+                        }
+                        rs = null;
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
                     }
                 }else{
                     if(rech.equals("")){
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie , heuresortie;");
                     }else{
+                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
+                        rs.next();
+                        nbVideo = rs.getInt(1);
+                        nbPage = nbVideo/9;
+                        if(nbVideo%9 != 0){
+                            nbPage++;
+                        }
+                        rs = null;
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
                     }
                 }
@@ -134,7 +159,7 @@ public class Main extends HttpServlet
     public String getListButtons(){
         String res = "<div class=\"listButton\">";
         for(int i = 0;i < nbPage;i ++){
-            res = res + "<a href=\"http://51.91.101.98:8080/Mitterie/Main?numeroPage="+i+"\">"+i+"</a>";
+            res = res + "<a href=\"http://51.91.101.98:8080/Mitterie/Main?numeroPage="+i+"\">"+(i+1)+"</a>";
         }
         res = res + "</div>";
         return res;
