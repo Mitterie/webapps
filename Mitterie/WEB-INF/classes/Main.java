@@ -81,9 +81,14 @@ public class Main extends HttpServlet
             try{
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie;");
-                nbVideo = rs.getInt(1);
+                try{
+                    nbVideo = rs.getInt(1);
+                    
+                    nbPage = nbVideo/9;
+                }catch(Exception e){
+                    content = content + "erreur 3";
+                }
                 rs = null;
-                nbPage = nbVideo/9;
                 if(cr){
                     if(rech.equals("")){
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie DESC, heuresortie DESC;");
