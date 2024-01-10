@@ -52,7 +52,7 @@ public class AdminPage extends HttpServlet {
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT id,login,role,email,daylastco,hourlastco FROM loginmitterie;");
                 while(rs.next()){
-                    res = res +"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(6)+"</td><td>\"+rs.getString(3)+\"</td></tr>";
+                    res = res +"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td></tr>";
                 }
                 con.close();
             } catch (Exception e2) {
