@@ -43,7 +43,10 @@ public class Authent extends HttpServlet {
                         ResultSet rs = pstmt.executeQuery();
                         if (rs.next()) {
                             valid = true;
+                            Statement stmt = con.createStatement();
+                            stmt.executeUpdate("UPDATE loginmitterie SET daylastco = '"+LocalDate.now().toString()+"', hourlastco = '"+LocalTime.now().toString()+"' WHERE login = "+l+";");
                         }
+                        
                         con.close();
                     } catch (Exception e2) {
                         System.out.println(e2.getMessage());
@@ -58,28 +61,6 @@ public class Authent extends HttpServlet {
         if (!valid) {
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
         } else {
-            try {
-                    Properties pr = new Properties();
-                    pr.load(new FileInputStream("/opt/tomcat/postgres.prop"));
-                    // enregistrement du driver
-                    Class.forName(pr.getProperty("driver"));
-                    // connexion à la base
-                    String url = pr.getProperty("url");
-                    String nom = pr.getProperty("nom");
-                    String mdp = pr.getProperty("mdp");
-                    Connection con = DriverManager.getConnection(url, nom, mdp);
-                    try {
-                        // exécution de la requete
-                        Statement stmt = con.createStatement();
-                        stmt.executeUpdate("UPDATE loginmitterie SET daylastco = '"+LocalDate.now().toString()+"', hourlastco = '"+LocalTime.now().toString()+"' WHERE login = "+l+";");
-                        con.close();
-                    } catch (Exception e2) {
-                        System.out.println(e2.getMessage());
-                        con.close();
-                    }
-                } catch (Exception e1) {
-                    System.out.println(e1.getMessage());
-                }
             HttpSession session = req.getSession(true);
             String token = l;
             session.setAttribute("token", token);
