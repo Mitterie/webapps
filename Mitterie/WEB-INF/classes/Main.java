@@ -84,10 +84,11 @@ public class Main extends HttpServlet
                 try{
                     nbVideo = rs.getInt(1);
                     
-                    nbPage = nbVideo/9;
+                    
                 }catch(Exception e){
                     content = content + "erreur 3";
                 }
+                nbPage = nbVideo/9;
                 rs = null;
                 if(cr){
                     if(rech.equals("")){
