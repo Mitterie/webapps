@@ -81,13 +81,8 @@ public class Main extends HttpServlet
             try{
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie;");
-                try{
-                    nbVideo = rs.getInt(1);
-                    
-                    
-                }catch(Exception e){
-                    content = content + "erreur 3";
-                }
+                rs.next();
+                nbVideo = rs.getInt(1);
                 nbPage = nbVideo/9;
                 rs = null;
                 if(cr){
