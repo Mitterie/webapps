@@ -81,7 +81,7 @@ public class Main extends HttpServlet
             try{
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie;");
-                nbVideo = Integer.parseInt(rs.getString(1));
+                nbVideo =rs.getInt(1);
                 rs = null;
                 nbPage = nbVideo/9;
                 if(cr){
@@ -119,7 +119,7 @@ public class Main extends HttpServlet
 
     public String getListButtons(){
         String res = "<div class=\"listButton\">";
-        for(int i = 1;i <= nbPage;i ++){
+        for(int i = 0;i < nbPage;i ++){
             res = res + "<a href=\"http://51.91.101.98:8080/Mitterie/Main?numeroPage="+i+"\">"+i+"</a>";
         }
         res = res + "</div>";
