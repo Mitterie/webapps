@@ -43,7 +43,7 @@ public class Authent extends HttpServlet {
                         if (rs.next()) {
                             valid = true;
                             Statement stmt = con.createStatement();
-                            stmt.executeUpdate("UPDATE loginmitterie SET daylastco = '"+LocalDate.now().toString()+"', hourlastco = '"+LocalTime.now().toString()+"' WHERE login = '"+l+"'';");
+                            stmt.executeUpdate("UPDATE loginmitterie SET daylastco = '"+LocalDate.now().toString()+"', hourlastco = '"+LocalTime.now().toString()+"' WHERE login = '"+l+"';");
                         }
                         
                         con.close();
