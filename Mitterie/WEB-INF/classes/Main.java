@@ -81,7 +81,7 @@ public class Main extends HttpServlet
             try{
                 Statement stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie;");
-                nbVideo =rs.getInt(1);
+                nbVideo = rs.getInt(1);
                 rs = null;
                 nbPage = nbVideo/9;
                 if(cr){
@@ -103,9 +103,17 @@ public class Main extends HttpServlet
                     links.add(rs.getString(1));
                     noms.add(rs.getString(2));
                 }
-                for(int i = (numeroPage * 9);i < (numeroPage * 9)+9;i ++){
-                    content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+links.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
+
+                if((numeroPage * 9)+9 >= links.size()){
+                    for(int i = (numeroPage * 9);i < links.size();i ++){
+                        content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+links.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
+                    }
+                }else{
+                    for(int i = (numeroPage * 9);i < (numeroPage * 9)+9;i ++){
+                        content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+links.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
+                    }
                 }
+                
                 con.close();
             }catch(Exception e2){
                 System.out.println(e2.getMessage());
