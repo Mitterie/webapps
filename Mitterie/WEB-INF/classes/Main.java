@@ -62,13 +62,18 @@ public class Main extends HttpServlet
                 croissant = false;
             }
 
+            String rechFinal = "";
+            if((String)session.getAttribute("rech") != null ){
+                rechFinal = (String)session.getAttribute("rech");
+            }
+
             res.setContentType("text/html");
             PrintWriter out = res.getWriter();
             out.println("<link rel=\"stylesheet\" href=\'./css/main.css\'>");
             out.println("<title>Videos</title>");
             out.println("<div class=\"list\"><h1>On fait quoi ?</h1><ul><li><a href=\"Entrance\">Retour</a></li><li><form action=Main method=post><input name=rech type=text placeholder=\"Rechercher...\"><input type=submit value=\"Valider\"></form></li><li><a href=\"Disconnect\">Se déconnecter</a></li></div>");
             out.println("<body><div class=\"videos\"><h2>Vidéos des mites</h2><form action=\"SaveCroissantMain\" method=\"post\"><input type=\"checkbox\" name=\"jeune\" value=\"vrai\" "+affichageCroissant+"/><label for=\"jeune\">Ordre croissant</label><button type=\"submit\">Recharger</button></form>");
-            out.println(getAllVideosHtml(croissant,(String)session.getAttribute("rech"))+"</div>");
+            out.println(getAllVideosHtml(croissant,rechFinal)+"</div>");
             out.println(getListButtons()+"</body>");
         }else{
             res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
