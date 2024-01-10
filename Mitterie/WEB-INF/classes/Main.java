@@ -106,7 +106,7 @@ public class Main extends HttpServlet
                     if(rech.equals("")){
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie DESC, heuresortie DESC;");
                     }else{
-                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
+                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%');");
                         rs.next();
                         nbVideo = rs.getInt(1);
                         nbPage = nbVideo/9;
@@ -120,7 +120,7 @@ public class Main extends HttpServlet
                     if(rech.equals("")){
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie , heuresortie;");
                     }else{
-                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
+                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%');");
                         rs.next();
                         nbVideo = rs.getInt(1);
                         nbPage = nbVideo/9;
