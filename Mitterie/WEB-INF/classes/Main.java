@@ -117,12 +117,12 @@ public class Main extends HttpServlet
                 con.close();
             }catch(Exception e2){
                 System.out.println(e2.getMessage());
-                content = content + " erreur ";
+                content = content + " erreur 1";
                 con.close();
             }
         }catch(Exception e1){
             System.out.println(e1.getMessage());
-            content = content + "erreur";
+            content = content + "erreur 2";
         }
         return content;
     }
