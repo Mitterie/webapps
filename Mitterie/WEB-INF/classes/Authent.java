@@ -36,15 +36,14 @@ public class Authent extends HttpServlet {
                     Connection con = DriverManager.getConnection(url, nom, mdp);
                     try {
                         // exécution de la requete
-                        PreparedStatement pstmt = con
-                                .prepareStatement("SELECT * FROM loginmitterie WHERE login = ? AND mdp = MD5(?);");
+                        PreparedStatement pstmt = con.prepareStatement("SELECT * FROM loginmitterie WHERE login = ? AND mdp = MD5(?);");
                         pstmt.setString(1, l);
                         pstmt.setString(2, m);
                         ResultSet rs = pstmt.executeQuery();
                         if (rs.next()) {
                             valid = true;
                             Statement stmt = con.createStatement();
-                            stmt.executeUpdate("UPDATE loginmitterie SET daylastco = '"+LocalDate.now().toString()+"', hourlastco = '"+LocalTime.now().toString()+"' WHERE login = "+l+";");
+                            stmt.executeUpdate("UPDATE loginmitterie SET daylastco = '"+LocalDate.now().toString()+"', hourlastco = '"+LocalTime.now().toString()+"' WHERE login = '"+l+"'';");
                         }
                         
                         con.close();
