@@ -184,3 +184,20 @@ div.videos div.video p {
         height: 28vh;
     }
 }
+
+.listButton {
+    display: flex;
+    margin: 5vh;
+    justify-content: center;
+    gap: 2vh;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+
+a:hover {
+    color: #31304D;
+}
