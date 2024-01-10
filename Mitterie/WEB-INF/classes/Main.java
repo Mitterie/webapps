@@ -103,7 +103,7 @@ public class Main extends HttpServlet
                     links.add(rs.getString(1));
                     noms.add(rs.getString(2));
                 }
-                for(int i = (numeroPage * 9)-1;i < (numeroPage * 9)+8;i ++){
+                for(int i = (numeroPage * 9);i < (numeroPage * 9)+9;i ++){
                     content = content + "<div class=\"video\"><iframe width=\"480\" height=\"270\" src=\"https://www.youtube.com/embed/"+links.get(i)+"\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe><p>"+noms.get(i)+"</p></div>";
                 }
                 con.close();
