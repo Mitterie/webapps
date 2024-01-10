@@ -97,40 +97,41 @@ public class Main extends HttpServlet
                     nbPage++;
                 }
                 rs = null;
+                ResultSet rs2;
                 if(cr){
                     if(rech.equals("")){
-                        rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie DESC, heuresortie DESC;");
+                        rs2 = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie DESC, heuresortie DESC;");
                     }else{
-                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
-                        rs.next();
-                        nbVideo = rs.getInt(1);
+                        rs2 = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
+                        rs2.next();
+                        nbVideo = rs2.getInt(1);
                         nbPage = nbVideo/9;
                         if(nbVideo%9 != 0){
                             nbPage++;
                         }
-                        rs = null;
-                        rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
+                        rs2 = null;
+                        rs2 = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
                     }
                 }else{
                     if(rech.equals("")){
-                        rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie , heuresortie;");
+                        rs2 = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie , heuresortie;");
                     }else{
-                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
-                        rs.next();
-                        nbVideo = rs.getInt(1);
+                        rs2 = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
+                        rs2.next();
+                        nbVideo = rs2.getInt(1);
                         nbPage = nbVideo/9;
                         if(nbVideo%9 != 0){
                             nbPage++;
                         }
-                        rs = null;
-                        rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
+                        rs2 = null;
+                        rs2 = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
                     }
                 }
                 ArrayList<String> links = new ArrayList<>();
                 ArrayList<String> noms = new ArrayList<>();
-                while(rs.next()){
-                    links.add(rs.getString(1));
-                    noms.add(rs.getString(2));
+                while(rs2.next()){
+                    links.add(rs2.getString(1));
+                    noms.add(rs2.getString(2));
                 }
 
                 if((numeroPage * 9)+9 >= links.size()){
