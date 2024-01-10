@@ -84,6 +84,9 @@ public class Main extends HttpServlet
                 rs.next();
                 nbVideo = rs.getInt(1);
                 nbPage = nbVideo/9;
+                if(nbVideo%9 != 0){
+                    nbPage++;
+                }
                 rs = null;
                 if(cr){
                     if(rech.equals("")){
