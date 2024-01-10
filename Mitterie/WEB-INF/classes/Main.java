@@ -101,21 +101,27 @@ public class Main extends HttpServlet
                     if(rech.equals("")){
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie DESC, heuresortie DESC;");
                     }else{
-                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
+                        try{
+                          rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
                         rs.next();
                         nbVideo = rs.getInt(1);
                         nbPage = nbVideo/9;
                         if(nbVideo%9 != 0){
                             nbPage++;
                         }
-                        rs = null;
+                        rs = null;  
+                        }catch(Exception e){
+                            content = content + "e3";
+                        }
+                        
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie DESC, heuresortie DESC;");
                     }
                 }else{
                     if(rech.equals("")){
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie ORDER BY datesortie , heuresortie;");
                     }else{
-                        rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
+                        try{
+                            rs = stmt.executeQuery("SELECT COUNT (*) FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
                         rs.next();
                         nbVideo = rs.getInt(1);
                         nbPage = nbVideo/9;
@@ -123,6 +129,9 @@ public class Main extends HttpServlet
                             nbPage++;
                         }
                         rs = null;
+                        }catch(Exception e){
+                            content = content + "e2";
+                        }
                         rs = stmt.executeQuery("SELECT * FROM videosmitterie WHERE UPPER(titre) LIKE UPPER('%"+rech+"%') ORDER BY datesortie , heuresortie;");
                     }
                 }
