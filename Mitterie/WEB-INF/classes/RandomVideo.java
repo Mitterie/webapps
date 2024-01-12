@@ -40,7 +40,7 @@ public class RandomVideo extends HttpServlet
             out.println(getRandomVideo());
             out.println("<form action=RandomVideo method=post><button type=\"submit\">Une autre vidéo !</button></form></div>");
         }else{
-            res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+            res.sendRedirect("http://51.91.101.98/Mitterie/");
         }
     }
 

@@ -13,7 +13,7 @@ public class Disconnect extends HttpServlet
     {
         HttpSession session = req.getSession();
         session.invalidate();
-        res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+        res.sendRedirect("http://51.91.101.98/Mitterie/");
     }
 
 }

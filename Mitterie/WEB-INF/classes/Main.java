@@ -76,7 +76,7 @@ public class Main extends HttpServlet
             out.println(getAllVideosHtml(croissant,rechFinal)+"</div>");
             out.println(getListButtons(rechFinal)+"</body>");
         }else{
-            res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+            res.sendRedirect("http://51.91.101.98/Mitterie/");
         }
     }
 
@@ -167,11 +167,11 @@ public class Main extends HttpServlet
         String res = "<div class=\"listButton\">";
         if(rech.equals("")){
             for(int i = 0;i < nbPage;i ++){
-                res = res + "<a href=\"http://51.91.101.98:8080/Mitterie/Main?numeroPage="+i+"\">"+(i+1)+"</a>";
+                res = res + "<a href=\"http://51.91.101.98/Mitterie/Main?numeroPage="+i+"\">"+(i+1)+"</a>";
             }
         }else{
             for(int i = 0;i < nbPage;i ++){
-                res = res + "<a href=\"http://51.91.101.98:8080/Mitterie/Main?numeroPage="+i+"&rech="+rech+"\">"+(i+1)+"</a>";
+                res = res + "<a href=\"http://51.91.101.98/Mitterie/Main?numeroPage="+i+"&rech="+rech+"\">"+(i+1)+"</a>";
             }
         }
         res = res + "</div>";

@@ -43,7 +43,7 @@ public class AuthentShortcut extends HttpServlet
                 }
             res.sendRedirect("Entrance");
         }else{
-            res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+            res.sendRedirect("http://51.91.101.98/Mitterie/");
         }
     }
 

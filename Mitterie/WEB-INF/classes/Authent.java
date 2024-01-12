@@ -58,7 +58,7 @@ public class Authent extends HttpServlet {
         }
 
         if (!valid) {
-            res.sendRedirect("http://51.91.101.98:8080/Mitterie/");
+            res.sendRedirect("http://51.91.101.98/Mitterie/");
         } else {
             HttpSession session = req.getSession(true);
             String token = l;
