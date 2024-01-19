@@ -167,11 +167,11 @@ public class Main extends HttpServlet
         String res = "<div class=\"listButton\">";
         if(rech.equals("")){
             for(int i = 0;i < nbPage;i ++){
-                res = res + "<a href=\"http://51.91.101.98/Mitterie/Main?numeroPage="+i+"\">"+(i+1)+"</a>";
+                res = res + "<a href=\"/Mitterie/Main?numeroPage="+i+"\">"+(i+1)+"</a>";
             }
         }else{
             for(int i = 0;i < nbPage;i ++){
-                res = res + "<a href=\"http://51.91.101.98/Mitterie/Main?numeroPage="+i+"&rech="+rech+"\">"+(i+1)+"</a>";
+                res = res + "<a href=\"/Mitterie/Main?numeroPage="+i+"&rech="+rech+"\">"+(i+1)+"</a>";
             }
         }
         res = res + "</div>";
