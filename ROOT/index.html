@@ -13,10 +13,12 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50%;
-            background-position-x: -50vh;
+            background-position-x: -40vh;
             height: 100vh;
             margin: 0;
+            transition: 1s;
             font-family: 'Courier New';
+            user-select: none;
         }
 
         body > div {
@@ -26,12 +28,13 @@
             text-align: center;
             padding: 4vh;
             position: absolute;
-            width: 40vh;
+            width: 35vh;
             height: 72vh;
         }
         
         body > div > img {
             width: 15vh;
+            font-size: 1vh;
         }
 
         body > div > h1 {
@@ -71,17 +74,23 @@
             opacity: 100%
         }
 
-        @media screen and (width < 625px) {
+        @media screen and not (min-aspect-ratio: 16/10.5) {*
+            body {
+                transition: 1s;
+                background-position-x: 50%;
+            }
+        
             div {
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%,-50%);
+                opacity: 75%;
             }
         }
 
-        @media screen and (width > 625px) {
+        @media screen and (min-aspect-ratio: 16/10.5) {
             div {
-                right: 35vh;
+                right: 10%;
                 top: 10vh;
             }
         }
