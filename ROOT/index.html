@@ -1,78 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SySErr</title>
+
+    <title>SyssEr</title>
 
     <style>
         body {
+            background-color: white;
+            background-image: url("/SyssErMite01.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50%;
+            background-position-x: -50vh;
+            height: 100vh;
             margin: 0;
-            user-select: none;
+            font-family: 'Courier New';
         }
 
         body > div {
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        body > div > div {
-            box-shadow: 0 0 2.5vh 1vh rgba(0,0,0,0.1);
             background-color: whitesmoke;
-            max-width: min-content;
+            box-shadow: 0 0 2.5vh 1vh rgba(0,0,0,0.1);
             border-radius: 2vh;
             text-align: center;
             padding: 4vh;
+            position: absolute;
+            width: 40vh;
+            height: 72vh;
+        }
+        
+        body > div > img {
+            width: 15vh;
         }
 
-        body > div > div > h1 {
-            font-size: 5.5vh;
-            margin: 0;
+        body > div > h1 {
+            font-size: 4vh;
+            margin: 1vh;
         }
 
-        body > div > div > p {
+        body > div > p {
             font-size: 1.7vh;
+            margin: 1vh;
         }
 
-        body > div > div > ul {
+        body > div > ul {
+            font-size: 2vh;
             list-style: none;
-            font-size: 2.5vh;
             padding: 0;
+            margin: 2vh;
         }
 
-        body > div > div > ul > li {
-            margin: 4vh;
-            display: flex;
+        body > div > ul > li {
+            padding: 1vh;
+            margin: 1vh;
         }
-
-        body > div > div > ul > li > a {
-            border: 0.1vh solid rgba(0, 0, 0, 0.3);
-            color: rgba(0, 0, 0, 0.3);
+        
+        
+        body > div > ul > li > a {
+            opacity: 50%;
+            display: block;
+            border: 0.1vh solid black;
+            border-radius: 1.2vh;
+            padding: 1vh;
             text-decoration: none;
-            border-radius: 1.5vh;
-            padding: 1vh 5vh;
+            color: black;
         }
 
-        body > div > div > ul > li > a:hover {
-            border-color: rgba(0, 0, 0, 0.7);
-            color: rgba(0, 0, 0, 0.7);
+        body > div > ul > li > a:hover {
+            opacity: 100%
+        }
+
+        @media screen and (width < 625px) {
+            div {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+        }
+
+        @media screen and (width > 625px) {
+            div {
+                right: 35vh;
+                top: 10vh;
+            }
         }
     </style>
 </head>
 <body>
     <div>
-        <div>
-            <h1>SySErr</h1>
-            <p>Merci de choisir le site vers lequel vous souhaitez vous diriger.</p>
-            <ul>
-                <li><a href="/Mitterie">Mitterie</a></li>
-                <li><a href="/Les-Muscles">Les Musclés</a></li>
-            </ul>
-        </div>
+        <img src="/favicon.ico" alt="favicon">
+        <h1>SyssEr</h1>
+        <p>Merci de choisir le site vers lequel vous souhaitez vous diriger.</p>
+        <ul>
+            <li><a href="/Mitterie">Mitterie</a></li>
+            <li><a href="/Les-Muscles">Les Musclés</a></li>
+        </ul>
     </div>
 </body>
 </html>
