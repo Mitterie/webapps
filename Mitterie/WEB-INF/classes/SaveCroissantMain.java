@@ -18,6 +18,6 @@ public class SaveCroissantMain extends HttpServlet
                 session.setAttribute("MainCroissant", false);
             }
         }
-        res.sendRedirect("Main");
+        res.sendRedirect("/Mitterie/Main");
     }
 }

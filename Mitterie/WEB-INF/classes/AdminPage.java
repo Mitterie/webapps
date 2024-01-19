@@ -25,13 +25,13 @@ public class AdminPage extends HttpServlet {
                     out.println("<body><h1>Tu es admin, c'est bein !</h1><br><a href=\"Entrance\">Retour</a><table>"
                             + getUsersContent() + "</table></body>");
                 } else {
-                    res.sendRedirect("Entrance");
+                    res.sendRedirect("/Mitterie/Entrance");
                 }
             } else {
-                res.sendRedirect("Entrance");
+                res.sendRedirect("/Mitterie/Entrance");
             }
         } else {
-            res.sendRedirect("Entrance");
+            res.sendRedirect("/Mitterie/Entrance");
         }
     }
 

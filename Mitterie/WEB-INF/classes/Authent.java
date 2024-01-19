@@ -58,14 +58,14 @@ public class Authent extends HttpServlet {
         }
 
         if (!valid) {
-            res.sendRedirect("http://51.91.101.98/Mitterie/");
+            res.sendRedirect("/Mitterie");
         } else {
             HttpSession session = req.getSession(true);
             String token = l;
             session.setAttribute("token", token);
             session.setAttribute("role", getRole(l));
             session.setMaxInactiveInterval(3600);
-            res.sendRedirect("Entrance");
+            res.sendRedirect("/Mitterie/Entrance");
         }
     }
 

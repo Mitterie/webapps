@@ -49,13 +49,13 @@ public class CreerCompte extends HttpServlet
                     System.out.println(e1.getMessage());
                 }
                 if(bon){
-                    res.sendRedirect("http://51.91.101.98/Mitterie/");
+                    res.sendRedirect("/Mitterie");
                 }else{
-                    res.sendRedirect("http://51.91.101.98/Mitterie/createAccount.html");
+                    res.sendRedirect("/Mitterie/createAccount");
                 }
             }
         }else{
-            res.sendRedirect("http://51.91.101.98/Mitterie/createAccount.html");
+            res.sendRedirect("/Mitterie/createAccount");
         }
         
     }

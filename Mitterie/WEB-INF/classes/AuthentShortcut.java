@@ -41,9 +41,9 @@ public class AuthentShortcut extends HttpServlet
                 } catch (Exception e1) {
                     System.out.println(e1.getMessage());
                 }
-            res.sendRedirect("Entrance");
+            res.sendRedirect("/Mitterie/Entrance");
         }else{
-            res.sendRedirect("http://51.91.101.98/Mitterie/");
+            res.sendRedirect("/Mitterie");
         }
     }
 

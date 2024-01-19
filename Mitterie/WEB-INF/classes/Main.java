@@ -76,7 +76,7 @@ public class Main extends HttpServlet
             out.println(getAllVideosHtml(croissant,rechFinal)+"</div>");
             out.println(getListButtons(rechFinal)+"</body>");
         }else{
-            res.sendRedirect("http://51.91.101.98/Mitterie/");
+            res.sendRedirect("/Mitterie");
         }
     }
 
