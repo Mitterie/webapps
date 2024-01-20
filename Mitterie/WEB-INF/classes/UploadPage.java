@@ -22,11 +22,11 @@ public class UploadPage extends HttpServlet {
                     "<form action=\"UploadVideo\" method=\"post\">"+
                     "<div class=\"url\">"+
                         "<input type=\"text\" placeholder=\"Entrez l'url de la vidéo (sans espace ou autre caractères)\" name=\"url\" required>"+
-                        "<p>Exemple d'url valide :</p><img>img/exempleurl.png</img>"+
+                        "<p>Exemple d'url valide :</p><img src=\"./img/exempleurl.png\" alt=\"url\">"+
                     "</div>"+
                     "<div class=\"titre\">"+
                         "<input type=\"text\" placeholder=\"Entrez le nom de la Vidéo (sans accent ou charactères spécial)\" name=\"titre\" required>"+
-                        "<p>Exemple de titre valide :</p><img>img/exempleTitre.png</img>"+
+                        "<p>Exemple de titre valide :</p><img src=\"./img/exempleTitre.png\" alt=\"titre\">"+
                     "</div>"+
                     "<button type=\"submit\">Upload</button>"+
                     "<p>Si l'upload réussi vous serez reidirigé vers l'acceuil sinon vous reviendrez sur cette page</p>"+
