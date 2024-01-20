@@ -15,7 +15,8 @@ public class UploadPage extends HttpServlet {
                 if (((String) session.getAttribute("role")).equals("admin")) {
                     res.setContentType("text/html");
                     PrintWriter out = res.getWriter();
-                    out.println("<link rel=\"stylesheet\" href=\'./css/upload.css\'>");
+                    out.println("<title>Page upload</title>");
+                    out.println("<link rel=\"stylesheet\" href=\'./css/upload.css\'><a href=\"Entrance\">Retour</a><body>");
 
                     String txt = "<div class=\"video\"><h1>Upload ta vidéo !</h1>"+
                     "<form action=\"UploadVideo\" method=\"post\">"+
@@ -29,7 +30,7 @@ public class UploadPage extends HttpServlet {
                     "</div>"+
                     "<button type=\"submit\">Upload</button>"+
                     "<p>Si l'upload réussi vous serez reidirigé vers l'acceuil sinon vous reviendrez sur cette page</p>"+
-                "</form></div>";
+                "</form></div></body>";
 
                 out.println(txt);
                     
