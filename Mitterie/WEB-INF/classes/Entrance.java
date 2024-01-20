@@ -25,7 +25,7 @@ public class Entrance extends HttpServlet
             String adminP = "";
             if(session.getAttribute("role") != null){
                 if(((String)session.getAttribute("role")).equals("admin")){
-                    adminP = "<li><a href=\"AdminPage\">Page Admin</a></li>";
+                    adminP = "<li><a href=\"AdminPage\">Page Admin</a></li><li><a href=\"UploadPage\">Page Upload</a></li>";
                 }
             }
             res.setContentType("text/html");
