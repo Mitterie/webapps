@@ -46,7 +46,7 @@ public class UploadVideo extends HttpServlet {
                                             fait = true; 
                                             PreparedStatement stmt2 = con.prepareStatement("NOTIFY bot, ?");
                                             stmt2.setString(1, titreVideo);
-                                            stmt2.executeUpdate();
+                                            stmt2.execute();
                                         }
                                         con.close();
                                     }catch(Exception e2){
