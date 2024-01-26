@@ -41,9 +41,14 @@ public class UploadVideo extends HttpServlet {
                                         PreparedStatement stmt = con.prepareStatement("INSERT INTO videosmitterie VALUES (?,?,'"+LocalDate.now().toString()+"','"+LocalTime.now().toString()+"');");
                                         stmt.setString(1, urlTab[3]);
                                         stmt.setString(2, titreVideo);
-                                        stmt.executeUpdate();
+                                        int r = stmt.executeUpdate();
+                                        if(r != -1 && r != 0){
+                                            fait = true; 
+                                            PreparedStatement stmt2 = con.prepareStatement("NOTIFY bot, ?");
+                                            stmt2.setString(1, titreVideo);
+                                            stmt2.executeUpdate();
+                                        }
                                         con.close();
-                                        fait = true;
                                     }catch(Exception e2){
                                         con.close();
                                     }
