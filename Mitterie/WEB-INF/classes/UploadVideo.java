@@ -42,7 +42,7 @@ public class UploadVideo extends HttpServlet {
                                         stmt.setString(1, urlTab[3]);
                                         stmt.setString(2, titreVideo);
                                         int r = stmt.executeUpdate();
-                                        if(r != -1 && r != 0){
+                                        if(r != -1){
                                             fait = true; 
                                             PreparedStatement stmt2 = con.prepareStatement("NOTIFY bot, ?");
                                             stmt2.setString(1, titreVideo);
