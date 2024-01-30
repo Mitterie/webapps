@@ -2,8 +2,7 @@ import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.sql.Statement;
 import java.util.Properties;
 
 import jakarta.servlet.*;
@@ -30,9 +29,9 @@ public class NotifyBot extends HttpServlet {
             Connection con = DriverManager.getConnection(url, nom, mdp);
             try {
 
-                PreparedStatement stmt2 = con.prepareStatement("NOTIFY bot, ?;");
-                stmt2.setString(1, "truc");
-                stmt2.execute();
+                Statement stmt2 = con.createStatement();
+                String caca = "sa";
+                stmt2.executeQuery("NOTIFY bot, '"+caca+"';");
 
                 con.close();
             } catch (Exception e2) {
