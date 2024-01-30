@@ -30,7 +30,7 @@ public class NotifyBot extends HttpServlet {
             Connection con = DriverManager.getConnection(url, nom, mdp);
             try {
 
-                PreparedStatement stmt2 = con.prepareStatement("NOTIFY bot, ?");
+                PreparedStatement stmt2 = con.prepareStatement("NOTIFY bot, ?;");
                 stmt2.setString(1, "truc");
                 stmt2.execute();
 
