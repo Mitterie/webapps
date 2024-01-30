@@ -31,7 +31,7 @@ public class NotifyBot extends HttpServlet {
 
                 Statement stmt2 = con.createStatement();
                 String caca = "sa";
-                stmt2.executeQuery("NOTIFY bot, '"+caca+"';");
+                stmt2.executeUpdate("NOTIFY bot, '"+caca+"';");
 
                 con.close();
             } catch (Exception e2) {
