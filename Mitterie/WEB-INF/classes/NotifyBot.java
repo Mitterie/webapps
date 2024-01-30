@@ -31,7 +31,9 @@ public class NotifyBot extends HttpServlet {
 
                 Statement stmt2 = con.createStatement();
                 String caca = "sa";
-                stmt2.executeUpdate("NOTIFY bot, '"+caca+"';");
+                if(stmt2.executeUpdate("NOTIFY bot, '"+caca+"';") == -1){
+                    out.println("ya r pelo");
+                }
 
                 con.close();
             } catch (Exception e2) {
