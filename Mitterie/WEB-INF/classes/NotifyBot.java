@@ -16,6 +16,8 @@ public class NotifyBot extends HttpServlet {
     public void service(HttpServletRequest req, HttpServletResponse res)
             throws ServletException, IOException {
 
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
         try {
             Properties pr = new Properties();
             pr.load(new FileInputStream("/opt/tomcat/postgres.prop"));
@@ -35,10 +37,10 @@ public class NotifyBot extends HttpServlet {
                 con.close();
             } catch (Exception e2) {
                 con.close();
-                System.out.println(e2.getMessage());
+                out.println(e2.getMessage());
             }
         } catch (Exception e1) {
-            System.err.println(e1.getMessage());
+            out.println(e1.getMessage());
         }
     }
 
