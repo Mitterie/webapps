@@ -48,9 +48,9 @@ public class UploadVideo extends HttpServlet {
             }
 
             if(fait){
-                res.sendRedirect("/Control?page=entrance");
+                res.sendRedirect("Control?page=entrance");
             }else{
-                res.sendRedirect("/Control?page=upload");
+                res.sendRedirect("Control?page=upload");
             }
 
         } else {
