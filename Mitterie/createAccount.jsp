@@ -108,7 +108,7 @@
 <body>
     <div>
         <h1>Creer ton compte !</h1>
-        <form action="CreerCompte" method="post">
+        <form action="CreateAccount" method="post">
             <div>
                 <span id="text" class="material-symbols-outlined"><input type="text" placeholder="Entrez votre nom d'utilisateur" name="ulogin" required></span>
             </div>
@@ -122,6 +122,7 @@
             <p>Si la création du compte réussi vous serait rediriger sur la page de connexion</p>
             <p>Sinon vous reviendrai sur cette page apres avoir cliquer sur "Creer"</p>
         </form>
+        <a href="/Mitterie/">Retour</a>
     </div>
 </body>
 </html>

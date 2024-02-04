@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -116,10 +117,10 @@
             </div>
             <button type="submit">Se connecter</button>
         </form>
-        <form action="AuthentShortcut" method="post">
+        <form action="Control?page=authentShortcut" method="post">
             <button type="submit">Je me suis deja connecté !</button>
         </form>
-        <a href="createAccount.html">Creer ton compte ici !</a>
+        <a href="createAccount.jsp">Creer ton compte ici !</a>
     </div>
 </body>
 </html>
