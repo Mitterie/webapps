@@ -26,11 +26,24 @@ body > a:hover {
 
 body > table {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     font-family: 'Courier New';
 }
 
 body > table > tbody > tr {
+    display: grid;
+    grid-template-columns: 0.1fr 0.5fr 0.5fr 01fr 0.5fr 0.5fr;
+    padding: 1vh;
+    margin: 1vh;
+    border-radius: 1.5vh;
+    justify-items: center;
+    align-items: center;
+    backdrop-filter: blur(1vh);
+    border: 0.1vh solid whitesmoke;
+}
+
+body > table > thead > tr {
     display: grid;
     grid-template-columns: 0.1fr 0.5fr 0.5fr 01fr 0.5fr 0.5fr;
     padding: 1vh;
